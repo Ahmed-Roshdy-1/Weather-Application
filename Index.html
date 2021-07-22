@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather </title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="Weather">
+      <input type="search" class="weathe__search" placeholder="yuor city" />
+      <div class="weather__today">
+        <div class="weather__details">
+          <h2 class="weaher__city">City</h2>
+          <p class="weather__day">Day</p>
+          <div class="weather__current">
+            <p class="weader__indicatoer weader__indicatoer--humiditiy"></p>
+            <p class="weader__indicatoer weader__indicatoer--wind"></p>
+            <p class="weader__indicatoer weader__indicatoer--pressure"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="js/weather.js"></script>
-</body>
+  </body>
 </html>
