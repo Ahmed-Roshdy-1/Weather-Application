@@ -41,3 +41,11 @@ body {
   font-weight: 300;
   font-size: 22px;
 }
+
+.weather {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
