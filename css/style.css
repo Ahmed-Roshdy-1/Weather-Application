@@ -67,6 +67,7 @@ body {
 
 .weather__today {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -111,4 +112,27 @@ body {
 
 .weather__temperature {
   font-size: 50px;
+}
+
+.weather__forecast {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.weather__forecast__icon {
+  width: 50%;
+}
+
+.weather__forecast__item {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  margin: 0 10px 10px;
+  padding: 30px 5px 20px;
+  box-sizing: border-box;
+  min-width: 150px;
+  width: calc(20% - 20px);
+  flex-grow: 1;
 }
