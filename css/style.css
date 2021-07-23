@@ -24,3 +24,20 @@
     url(../fonts/OpenSans-Bold.woff2) format(woff2);
   font-weight: 700;
 }
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-image: radial-gradient(
+    circle,
+    #1c7fc2 0%,
+    #009cdc 28%,
+    #0d9ade 32%,
+    #011844 100%
+  );
+  color: #fff;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+}
