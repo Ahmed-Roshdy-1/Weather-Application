@@ -58,6 +58,7 @@ body {
   font-size: 20px;
   color: inherit;
   white-space: nowrap;
+  margin-bottom: 20px;
 }
 
 .weather__search::placeholder {
@@ -76,7 +77,7 @@ body {
 
 .weaher__city {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 500;
   margin: 20px 0;
 }
 
@@ -106,4 +107,8 @@ body {
 
 .weader__indicatoer--pressure::before {
   background-image: url(../images/pressure.png);
+}
+
+.weather__temperature {
+  font-size: 50px;
 }
