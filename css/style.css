@@ -57,8 +57,30 @@ body {
   background-color: rgba(255, 255, 255, 0.15);
   font-size: 20px;
   color: inherit;
+  white-space: nowrap;
 }
 
 .weather__search::placeholder {
   color: #fff;
+}
+
+.weather__today {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather__image {
+  width: 30vmin;
+  align-self: center;
+}
+
+.weaher__city {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.weather__day {
+  font-size: 30px;
+  margin: 10px 0;
 }
