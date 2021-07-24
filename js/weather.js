@@ -36,6 +36,8 @@ let updateCurrentWeather = (data) => {
   day.textContent = dayOfWeak();
   calendar.textContent = calenderInfo();
   humidity.textContent = data.main.humidity;
+  pressure.textContent = data.main.pressure;
+  wind.textContent = windInfo(data);
 };
 
 // get day info
@@ -46,4 +48,20 @@ let dayOfWeak = () => {
 // get calender info
 let calenderInfo = () => {
   return new Date().toLocaleDateString("en-EN", { calendar: "long" });
+};
+
+// get wind info
+let windInfo = (data) => {
+  let windDirection;
+  let deg = data.wind.deg;
+  if (deg > 45 && deg <= 135) {
+    windDirection = "East";
+  } else if (deg > 135 && deg <= 225) {
+    windDirection = "South";
+  } else if (deg > 225 && deg <= 315) {
+    windDirection = "West";
+  } else {
+    windDirection = "North";
+  }
+  return windDirection + ", " + data.wind.speed;
 };
