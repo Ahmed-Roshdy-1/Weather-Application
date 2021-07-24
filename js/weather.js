@@ -25,6 +25,11 @@ searchInp.addEventListener("keydown", async (e) => {
   if (e.keyCode === 13) {
     let weather = await getWeatherByCityName(searchInp.nodeValue);
 
-    console.log(weather);
+    updateCurrentWeather(weather);
   }
 });
+
+// update weather details
+let updateCurrentWeather = (data) => {
+  city.textContent = data.name + ", " + data.sys.country;
+};
