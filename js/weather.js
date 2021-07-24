@@ -2,9 +2,9 @@ let searchInp = document.querySelector(".weather__search");
 let city = document.querySelector(".weaher__city");
 let day = document.querySelector(".weather__day");
 let calendar = document.querySelector(".weather__calendar");
-let humidity = document.querySelector("weader__indicatoer--humiditiy>.value");
-let wind = document.querySelector(".weader__indicatoer--humiditiy>.value");
-let pressure = document.querySelector(".weader__indicatoer--pressure>.value");
+let humidity = document.querySelector(".humiditiy-value");
+let wind = document.querySelector(".wind-value");
+let pressure = document.querySelector(".pressure-value");
 let image = document.querySelector(".weather__image");
 let temperaature = document.querySelector(".weather__temperature");
 
@@ -35,6 +35,7 @@ let updateCurrentWeather = (data) => {
   city.textContent = data.name + ", " + data.sys.country;
   day.textContent = dayOfWeak();
   calendar.textContent = calenderInfo();
+  humidity.textContent = data.main.humidity;
 };
 
 // get day info
