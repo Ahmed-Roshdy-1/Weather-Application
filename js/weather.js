@@ -33,7 +33,7 @@ searchInp.addEventListener("keydown", async (e) => {
 // update weather details
 let updateCurrentWeather = (data) => {
   city.textContent = data.name + ", " + data.sys.country;
-  day.textContent = calenderInfo();
+  day.textContent = dayOfWeak();
   calendar.textContent = calenderInfo();
 };
 
