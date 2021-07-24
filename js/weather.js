@@ -12,12 +12,19 @@ let weatherBaseEndpoint =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
   weatherAPIKey;
 
-// check API Connection
+//  API Connection
 let getWeatherByCityName = async (city) => {
   let endpoint = weatherBaseEndpoint + "&q=" + city;
   let response = await fetch(endpoint);
   let weather = await response.json();
-  console.log(weather);
+  return weather;
 };
 
-getWeatherByCityName("New York");
+// search for city
+searchInp.addEventListener("keydown", async (e) => {
+  if (e.keyCode === 13) {
+    let weather = await getWeatherByCityName(searchInp.nodeValue);
+
+    console.log(weather);
+  }
+});
