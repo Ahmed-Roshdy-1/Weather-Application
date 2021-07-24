@@ -23,7 +23,7 @@ let getWeatherByCityName = async (city) => {
 // search for city
 searchInp.addEventListener("keydown", async (e) => {
   if (e.keyCode === 13) {
-    let weather = await getWeatherByCityName(searchInp.nodeValue);
+    let weather = await getWeatherByCityName(searchInp.value);
 
     updateCurrentWeather(weather);
   }
@@ -32,4 +32,10 @@ searchInp.addEventListener("keydown", async (e) => {
 // update weather details
 let updateCurrentWeather = (data) => {
   city.textContent = data.name + ", " + data.sys.country;
+  day.textContent = dayOfWeak();
+};
+
+// get day info
+let dayOfWeak = () => {
+  return new Date().toLocaleDateString("en-EN", { weekday: "long" });
 };
