@@ -1,3 +1,4 @@
+let searchInp = document.querySelector(".weather__search");
 let city = document.querySelector(".weaher__city");
 let day = document.querySelector(".weather__day");
 let humidity = document.querySelector("weader__indicatoer--humiditiy>.value");
