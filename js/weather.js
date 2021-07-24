@@ -1,6 +1,7 @@
 let searchInp = document.querySelector(".weather__search");
 let city = document.querySelector(".weaher__city");
 let day = document.querySelector(".weather__day");
+let calendar = document.querySelector(".weather__calendar");
 let humidity = document.querySelector("weader__indicatoer--humiditiy>.value");
 let wind = document.querySelector(".weader__indicatoer--humiditiy>.value");
 let pressure = document.querySelector(".weader__indicatoer--pressure>.value");
@@ -32,10 +33,16 @@ searchInp.addEventListener("keydown", async (e) => {
 // update weather details
 let updateCurrentWeather = (data) => {
   city.textContent = data.name + ", " + data.sys.country;
-  day.textContent = dayOfWeak();
+  day.textContent = calenderInfo();
+  calendar.textContent = calenderInfo();
 };
 
 // get day info
 let dayOfWeak = () => {
   return new Date().toLocaleDateString("en-EN", { weekday: "long" });
+};
+
+// get calender info
+let calenderInfo = () => {
+  return new Date().toLocaleDateString("en-EN", { calendar: "long" });
 };
