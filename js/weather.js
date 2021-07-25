@@ -101,13 +101,13 @@ searchInp.addEventListener("keydown", async (e) => {
 
 // API Connection for search Imput
 searchInp.addEventListener("input", async () => {
-  let endpoint = cityBaseEndpoint + searchInp;
+  let endpoint = cityBaseEndpoint + searchInp.value;
   let result = await (await fetch(endpoint)).json();
   suggestions.innerHTML = "";
   let cities = result._embedded["city:search-results"];
   let length = cities.length > 5 ? 5 : cities.length;
   for (let i = 0; i < length; i++) {
-    let option = documentc.createElement("option");
+    let option = document.createElement("option");
     option.value = cities[i].matching_full_name;
     suggestions.appendChild(option);
   }
