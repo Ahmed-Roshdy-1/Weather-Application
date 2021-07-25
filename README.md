@@ -5,6 +5,8 @@
 ## ✅ it a weather app that forecasts for today and five day after that.
 
 ## ✅ this app has the research input of the city you want to know its weather.
+#
+#
 
 # screenshot
 ![Screenshot (339)](https://user-images.githubusercontent.com/65695097/126917409-bfa14109-0cb9-4d5f-91ba-34f8c50b4d34.png)
