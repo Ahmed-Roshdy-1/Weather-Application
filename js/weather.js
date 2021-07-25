@@ -199,6 +199,7 @@ let windInfo = (data) => {
   return windDirection + ", " + data.wind.speed;
 };
 
+// initial city for cairo
 let init = () => {
   weatherForCity("Cairo").then(() => (document.body.style.filter = "blur(0)"));
 };
