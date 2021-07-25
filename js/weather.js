@@ -18,6 +18,7 @@ let forecastBaseEndpoint =
   "https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=" +
   weatherAPIKey;
 
+// arrey for images
 let weatherImages = [
   {
     url: "images/clear-sky.png",
@@ -45,7 +46,7 @@ let weatherImages = [
   },
   {
     url: "images/shower-rain.png",
-    ids: [520, 521, 522, 531, 200, 301, 302, 310, 311, 312, 313, 314, 321],
+    ids: [520, 521, 522, 531, 300, 301, 302, 310, 311, 312, 313, 314, 321],
   },
   {
     url: "images/snow.png",
