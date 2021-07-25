@@ -62,9 +62,21 @@ let weatherImages = [
 ];
 
 //  API Connection for weathet today seaction
-let getWeatherByCityName = async (city) => {
+let getWeatherByCityName = async (cityString) => {
+  let city;
+  if (cityString.includes(",")) {
+    city =
+      cityString.substring(0, cityString.indexOf(",")) +
+      cityString.substring(cityString.lastIndexOf(","));
+  } else {
+    city = cityString;
+  }
   let endpoint = weatherBaseEndpoint + "&q=" + city;
   let response = await fetch(endpoint);
+  if (response.status !== 200) {
+    alert("City not found !");
+    return;
+  }
   let weather = await response.json();
   return weather;
 };
@@ -91,7 +103,9 @@ let getForecastByCityID = async (id) => {
 searchInp.addEventListener("keydown", async (e) => {
   if (e.keyCode === 13) {
     let weather = await getWeatherByCityName(searchInp.value);
-
+    if (!weather) {
+      return;
+    }
     let cityID = weather.id;
     updateCurrentWeather(weather);
     let forecast = await getForecastByCityID(cityID);
