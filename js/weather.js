@@ -15,7 +15,7 @@ let weatherBaseEndpoint =
   weatherAPIKey;
 
 let forecastBaseEndpoint =
-  "api.openweathermap.org/data/2.5/forecast/daily?units=metric&appid=" +
+  "https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=" +
   weatherAPIKey;
 
 //  API Connection for weathet today seaction
@@ -41,6 +41,7 @@ let getForecastByCityID = async (id) => {
       daily.push(day);
     }
   });
+  return daily;
 };
 
 //  set city weather info
@@ -50,7 +51,8 @@ searchInp.addEventListener("keydown", async (e) => {
 
     let cityID = weather.id;
     updateCurrentWeather(weather);
-    getForecastByCityID(cityID);
+    let forecast = await getForecastByCityID(cityID);
+    updateForecast(forecast);
   }
 });
 
@@ -68,9 +70,31 @@ let updateCurrentWeather = (data) => {
       : Math.round(data.main.temp);
 };
 
+// update forecast weather details
+let updateForecast = (forecast) => {
+  forecastBlock.innerHTML = "";
+  forecast.forEach((day) => {
+    let iconUrl =
+      "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png";
+    let dayName = dayOfWeak(day.dt * 1000);
+    let temperature =
+      day.main.temp > 0
+        ? "+" + Math.round(day.main.temp)
+        : Math.round(day.main.temp);
+    let forecatItem = `
+            <article class="weather__forecast__item">
+                <img src="${iconUrl}" alt="${day.weather[0].description}" class="weather__forecast__icon">
+                <h3 class="weather__forecast__day">${dayName}</h3>
+                <p class="weather__forecast__temperature"><span class="value">${temperature}</span> &deg;C</p>
+            </article>
+        `;
+    forecastBlock.insertAdjacentHTML("beforeend", forecatItem);
+  });
+};
+
 // get day info
-let dayOfWeak = () => {
-  return new Date().toLocaleDateString("en-EN", { weekday: "long" });
+let dayOfWeak = (dt = new Date().getTime()) => {
+  return new Date(dt).toLocaleDateString("en-EN", { weekday: "long" });
 };
 
 // get calender info
@@ -92,13 +116,4 @@ let windInfo = (data) => {
     windDirection = "North";
   }
   return windDirection + ", " + data.wind.speed;
-};
-
-// update forecast weather details
-let updateForecast = (forecast) => {
-  forecastBlock.innerHTML = "";
-  forecast.forEach((day) => {
-    let iconUrl =
-      "http://openweathermap.org/img/wn/" + day.weather[0].icon + "2x.png";
-  });
 };
