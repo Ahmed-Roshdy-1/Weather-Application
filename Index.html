@@ -9,7 +9,18 @@
   </head>
   <body>
     <div class="Weather">
-      <input type="search" class="weather__search" placeholder="yuor city" />
+      <input
+        type="search"
+        list="suggestions"
+        class="weather__search"
+        placeholder="yuor city"
+      />
+      <datalist id="suggestions">
+        <option value="London"> </option>
+        <option value="New York"> </option>
+        <option value="Rome"> </option> >
+      </datalist>
+
       <div class="weather__today">
         <div class="weather__details">
           <h2 class="weaher__city">City</h2>

@@ -9,6 +9,7 @@ let image = document.querySelector(".weather__image");
 let temperaature = document.querySelector(".temperature-value");
 let forecastBlock = document.querySelector(".weather__forecast");
 
+// API variable
 let weatherAPIKey = "833a87b3be5a98f32e77368383c8a6b3";
 let weatherBaseEndpoint =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
@@ -17,6 +18,7 @@ let weatherBaseEndpoint =
 let forecastBaseEndpoint =
   "https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=" +
   weatherAPIKey;
+let cityBaseEndpoint = "https://api.teleport.org/api/cities/?search=";
 
 // arrey for images
 let weatherImages = [
@@ -94,6 +96,12 @@ searchInp.addEventListener("keydown", async (e) => {
     let forecast = await getForecastByCityID(cityID);
     updateForecast(forecast);
   }
+});
+
+// API Connection for search Imput
+searchInp.addEventListener("input", async () => {
+  let endpoint = cityBaseEndpoint + searchInp;
+  let result = await (await fetch(endpoint)).json();
 });
 
 // update weather details
