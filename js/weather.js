@@ -99,17 +99,20 @@ let getForecastByCityID = async (id) => {
   return daily;
 };
 
+let weatherForCity = async (city) => {
+  let weather = await getWeatherByCityName(city);
+  if (!weather) {
+    return;
+  }
+  let cityID = weather.id;
+  updateCurrentWeather(weather);
+  let forecast = await getForecastByCityID(cityID);
+  updateForecast(forecast);
+};
 //  set city weather info
 searchInp.addEventListener("keydown", async (e) => {
   if (e.keyCode === 13) {
-    let weather = await getWeatherByCityName(searchInp.value);
-    if (!weather) {
-      return;
-    }
-    let cityID = weather.id;
-    updateCurrentWeather(weather);
-    let forecast = await getForecastByCityID(cityID);
-    updateForecast(forecast);
+    weatherForCity(searchInp.value);
   }
 });
 
@@ -195,3 +198,9 @@ let windInfo = (data) => {
   }
   return windDirection + ", " + data.wind.speed;
 };
+
+let init = () => {
+  weatherForCity("Cairo");
+};
+
+init();
