@@ -200,7 +200,7 @@ let windInfo = (data) => {
 };
 
 let init = () => {
-  weatherForCity("Cairo");
+  weatherForCity("Cairo").then(() => (document.body.style.filter = "blur(0)"));
 };
 
 init();
