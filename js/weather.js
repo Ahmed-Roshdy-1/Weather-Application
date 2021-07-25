@@ -6,7 +6,7 @@ let humidity = document.querySelector(".humiditiy-value");
 let wind = document.querySelector(".wind-value");
 let pressure = document.querySelector(".pressure-value");
 let image = document.querySelector(".weather__image");
-let temperaature = document.querySelector(".weather__temperature");
+let temperaature = document.querySelector(".temperature-value");
 
 let weatherAPIKey = "833a87b3be5a98f32e77368383c8a6b3";
 let weatherBaseEndpoint =
@@ -38,6 +38,10 @@ let updateCurrentWeather = (data) => {
   humidity.textContent = data.main.humidity;
   pressure.textContent = data.main.pressure;
   wind.textContent = windInfo(data);
+  temperaature.textContent =
+    data.main.temp > 0
+      ? "+" + Math.round(data.main.temp)
+      : Math.round(data.main.temp);
 };
 
 // get day info
