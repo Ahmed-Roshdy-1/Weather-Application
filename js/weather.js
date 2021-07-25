@@ -13,7 +13,11 @@ let weatherBaseEndpoint =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
   weatherAPIKey;
 
-//  API Connection
+let forecastBaseEndpoint =
+  "api.openweathermap.org/data/2.5/forecast/daily?units=metric&appid=" +
+  weatherAPIKey;
+
+//  API Connection for weathet today seaction
 let getWeatherByCityName = async (city) => {
   let endpoint = weatherBaseEndpoint + "&q=" + city;
   let response = await fetch(endpoint);
@@ -21,12 +25,31 @@ let getWeatherByCityName = async (city) => {
   return weather;
 };
 
+//  API Connection for forecast seaction
+let getForecastByCityID = async (id) => {
+  let endpoint = forecastBaseEndpoint + "&id=" + id;
+  let result = await fetch(endpoint);
+  let forecast = await result.json();
+  let forecastList = forecast.list;
+  let daily = [];
+
+  forecastList.forEach((day) => {
+    let date = new Date(day.dt_txt.replace(" ", "T"));
+    let hours = date.getHours();
+    if (hours === 12) {
+      daily.push(day);
+    }
+  });
+};
+
 // search for city
 searchInp.addEventListener("keydown", async (e) => {
   if (e.keyCode === 13) {
     let weather = await getWeatherByCityName(searchInp.value);
 
+    let cityID = weather.id;
     updateCurrentWeather(weather);
+    getForecastByCityID(cityID);
   }
 });
 
