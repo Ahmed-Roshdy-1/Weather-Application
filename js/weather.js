@@ -7,6 +7,7 @@ let wind = document.querySelector(".wind-value");
 let pressure = document.querySelector(".pressure-value");
 let image = document.querySelector(".weather__image");
 let temperaature = document.querySelector(".temperature-value");
+let forecastBlock = document.querySelector(".weather__forecast");
 
 let weatherAPIKey = "833a87b3be5a98f32e77368383c8a6b3";
 let weatherBaseEndpoint =
@@ -42,7 +43,7 @@ let getForecastByCityID = async (id) => {
   });
 };
 
-// search for city
+//  set city weather info
 searchInp.addEventListener("keydown", async (e) => {
   if (e.keyCode === 13) {
     let weather = await getWeatherByCityName(searchInp.value);
@@ -91,4 +92,13 @@ let windInfo = (data) => {
     windDirection = "North";
   }
   return windDirection + ", " + data.wind.speed;
+};
+
+// update forecast weather details
+let updateForecast = (forecast) => {
+  forecastBlock.innerHTML = "";
+  forecast.forEach((day) => {
+    let iconUrl =
+      "http://openweathermap.org/img/wn/" + day.weather[0].icon + "2x.png";
+  });
 };
