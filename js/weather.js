@@ -8,6 +8,7 @@ let pressure = document.querySelector(".pressure-value");
 let image = document.querySelector(".weather__image");
 let temperaature = document.querySelector(".temperature-value");
 let forecastBlock = document.querySelector(".weather__forecast");
+let suggestions = document.querySelector("#suggestions");
 
 // API variable
 let weatherAPIKey = "833a87b3be5a98f32e77368383c8a6b3";
@@ -102,6 +103,14 @@ searchInp.addEventListener("keydown", async (e) => {
 searchInp.addEventListener("input", async () => {
   let endpoint = cityBaseEndpoint + searchInp;
   let result = await (await fetch(endpoint)).json();
+  suggestions.innerHTML = "";
+  let cities = result._embedded["city:search-results"];
+  let length = cities.length > 5 ? 5 : cities.length;
+  for (let i = 0; i < length; i++) {
+    let option = documentc.createElement("option");
+    option.value = cities[i].matching_full_name;
+    suggestions.appendChild(option);
+  }
 });
 
 // update weather details
