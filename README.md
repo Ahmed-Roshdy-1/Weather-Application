@@ -13,5 +13,4 @@
 
 # screenshot
 ![Screenshot (339)](https://user-images.githubusercontent.com/65695097/126917409-bfa14109-0cb9-4d5f-91ba-34f8c50b4d34.png)
-https://user-images.githubusercontent.com/65695097/128082912-691418ea-e67b-463c-bac6-1b698fbdbbe9.mp4
 
