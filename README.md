@@ -1,11 +1,10 @@
 # Weather Application [ See a live demo of the project](https://ahmed-roshdy-1.github.io/Weather-Application/)
-## Weather Application using API
+## Weather Application using API that fetching from openweathermap
  
 
 ## ✅ it a weather app that forecasts for today and five day after that.
-
 ## ✅ this app has the research input of the city you want to know its weather.
-#
+## ✅ the app is fully responsive.
 #
 
 # screenshot
