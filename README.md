@@ -1,7 +1,5 @@
 
 
-https://user-images.githubusercontent.com/65695097/128083883-942bed19-3a80-4e8e-a8a9-9ec995bf96f6.mp4
-
 
 
 
@@ -17,4 +15,7 @@ https://user-images.githubusercontent.com/65695097/128083883-942bed19-3a80-4e8e-
 
 # screenshot
 ![Screenshot (339)](https://user-images.githubusercontent.com/65695097/126917409-bfa14109-0cb9-4d5f-91ba-34f8c50b4d34.png)
+
+
+https://user-images.githubusercontent.com/65695097/128083883-942bed19-3a80-4e8e-a8a9-9ec995bf96f6.mp4
 
